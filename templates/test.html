@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+var options="";
+$("#gender").on('change',function(){
+    var value=$(this).val();
+    if(value=="Male")
+    {
+        options="<option>Select Your Name</option><option value='Male1'>Male 1</option><option value='Male2'>Male 2</option>";
+        $("#name").html(options);
+    }
+    else if(value=="Female")
+    {
+        options="<option>Select Your Name</option><option value="female1">Female 1</option><option value="female2">Female 2</option>";
+        $("#name").html(options);
+    }
+    else
+        $("#name").find('option').remove()
+});
+</script>
+
+<select id="gender">
+        <option>Select Your Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+</select>
+
+<select id="name">
+
+
+</select>
+</body>
+</html>
