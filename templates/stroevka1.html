@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/stroevka1.css">
+    <title>Строевая записка ФПСОИБ</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body style="background-color:#111a33 ;">
+<header>
+
+</header>
+
+
+<nav class="menu">
+    <ul>
+        <img src="эмблема.png" alt="" width="70px">
+        <li><a href="#4kurs">Редактированиe</a></li>
+        <li><a href="arhiv.html">Архив</a></li>
+        <li><a href="#">Аналитика</a></li>
+    </ul>
+</nav>
+
+<div class="4kurs">
+
+    <button id="addButton">➕</button>
+    <div class="redac">
+        <p class="bol">Больные</p>
+        <div class="input">
+            <select class="vzvod">
+                {%- for platoon in platoons -%}
+                    <option>{{ platoon }}</option>
+                {%- endfor -%}
+            </select>
+            <select class="vzvods"> <!--my-->
+                {%- for cadet in cadets -%}
+                    <option>{{ cadet }}</option>
+                {%- endfor -%}
+            </select>
+            <input class="text-field__input2" type="text" id="prichina" placeholder="диагноз"/>
+            <input class="text-field__input3" type="text" id="data" placeholder="10.10.2023" onfocus="(this.type='date')" max="10.10.2024"/>
+            <button class="removeButton"><b>—</b></button>
+        </div>
+        <script>
+            $(document).ready(function() {
+            $("#addButton").click(function() {
+              var copy = $(".input").first().clone();
+              copy.find(".removeButton").click(function() {
+                $(this).closest(".input").remove(); // Удаление элемента при нажатии на кнопку
+              });
+              $(".input").last().after(copy);
+            });
+            });
+        </script>
+    </div>
+
+
+    <div id="redac1">
+        <button id="addButton1">➕</button>
+        <p class="naryad">Наряд</p>
+        <div class="input1">
+            <select class="vzvod">
+                <option>901</option>
+                <option>902</option>
+                <option>903</option>
+                <option>904</option>
+            </select>
+            <input class="text-field__input1" type="text" id="fio" placeholder="Иванов И.С."/>
+            <select class="vzvod1">
+                <option>суточный наряд</option>
+                <option>наряд хозяйственный</option>
+                <option>наряд по столовой</option>
+            </select>
+            <button class="removeButton1"><b>—</b></button>
+        </div>
+        <script>
+            $(document).ready(function() {
+            $("#addButton1").click(function() {
+              var copy = $(".input1").first().clone();
+              copy.find(".removeButton1").click(function() {
+                $(this).closest(".input1").remove(); // Удаление элемента при нажатии на кнопку
+              });
+              $(".input1").last().after(copy);
+            });
+            });
+        </script>
+    </div>
+
+
+    <div class="redac2">
+        <button id="addButton2">➕</button>
+        <p class="prochee">Прочее</p>
+        <div class="input2">
+            <select class="vzvod">
+                <option>901</option>
+                <option>902</option>
+                <option>903</option>
+                <option>904</option>
+            </select>
+            <input class="text-field__input1" type="text" id="fio" placeholder="Иванов И.С."/>
+            <input class="text-field__input2" type="text" id="prichina" placeholder="укажите причину"/>
+            <button class="removeButton2"><b>—</b></button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+        $("#addButton2").click(function() {
+          var copy = $(".input2").first().clone();
+          copy.find(".removeButton2").click(function() {
+            $(this).closest(".input2").remove(); // Удаление элемента при нажатии на кнопку
+          });
+          $(".input2").last().after(copy);
+        });
+        });
+    </script>
+
+
+    <div class="redac3">
+        <button id="addButton3">➕</button>
+        <p class="naryad">Неизвестная причина</p>
+        <div class="input3">
+            <select class="vzvod">
+                <option>901</option>
+                <option>902</option>
+                <option>903</option>
+                <option>904</option>
+            </select>
+            <input class="text-field__input1" type="text" id="fio" placeholder="Иванов И.С."/>
+            <input class="text-field__input2" type="text" id="prichina" placeholder="укажите причину"/>
+            <button class="removeButton3"><b>—</b></button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+        $("#addButton3").click(function() {
+          var copy = $(".input3").first().clone();
+          copy.find(".removeButton3").click(function() {
+            $(this).closest(".input3").remove(); // Удаление элемента при нажатии на кнопку
+          });
+          $(".input3").last().after(copy);
+        });
+        });
+    </script>
+
+
+    <input type="submit" id="cohranit" value="Подтвердить"/>
+    <input type="submit" id="cohranit1" value="Изменить"/>
+
+</div>
+
+
+</body>
+
+</html>
+
