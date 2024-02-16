@@ -25,36 +25,32 @@
 </nav>
 
 <div class="4kurs">
+<!--    <select id="gender">-->
+<!--            <option>Select Your Gender</option>-->
+<!--            <option value="Male">Male</option>-->
+<!--            <option value="Female">Female</option>-->
+<!--    </select>-->
+<!--    <select id="name">-->
+<!--    </select>-->
 
-    <button id="addButton">➕</button>
     <div class="redac">
+        <button id="addButton">➕</button>
         <p class="bol">Больные</p>
         <div class="input">
-            <select class="vzvod">
+            <select id="vzvod">
                 {%- for platoon in platoons -%}
-                    <option>{{ platoon }}</option>
+                    <option value="{{ platoon }}">{{ platoon }}</option>
                 {%- endfor -%}
             </select>
-            <select class="vzvods"> <!--my-->
+            <select id="vzvods">
                 {%- for cadet in cadets -%}
-                    <option>{{ cadet }}</option>
+                    <option value="{{ cadet }}">{{ cadet }}</option>
                 {%- endfor -%}
             </select>
             <input class="text-field__input2" type="text" id="prichina" placeholder="диагноз"/>
-            <input class="text-field__input3" type="text" id="data" placeholder="10.10.2023" onfocus="(this.type='date')" max="10.10.2024"/>
+            <input class="text-field__input3" type="text" id="data" placeholder="{{ date_today }}" onfocus="(this.type='date')" min="2024-01-01" max="2077-01-01"/>
             <button class="removeButton"><b>—</b></button>
         </div>
-        <script>
-            $(document).ready(function() {
-            $("#addButton").click(function() {
-              var copy = $(".input").first().clone();
-              copy.find(".removeButton").click(function() {
-                $(this).closest(".input").remove(); // Удаление элемента при нажатии на кнопку
-              });
-              $(".input").last().after(copy);
-            });
-            });
-        </script>
     </div>
 
 
@@ -76,17 +72,6 @@
             </select>
             <button class="removeButton1"><b>—</b></button>
         </div>
-        <script>
-            $(document).ready(function() {
-            $("#addButton1").click(function() {
-              var copy = $(".input1").first().clone();
-              copy.find(".removeButton1").click(function() {
-                $(this).closest(".input1").remove(); // Удаление элемента при нажатии на кнопку
-              });
-              $(".input1").last().after(copy);
-            });
-            });
-        </script>
     </div>
 
 
@@ -106,17 +91,6 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function() {
-        $("#addButton2").click(function() {
-          var copy = $(".input2").first().clone();
-          copy.find(".removeButton2").click(function() {
-            $(this).closest(".input2").remove(); // Удаление элемента при нажатии на кнопку
-          });
-          $(".input2").last().after(copy);
-        });
-        });
-    </script>
 
 
     <div class="redac3">
@@ -134,17 +108,6 @@
             <button class="removeButton3"><b>—</b></button>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
-        $("#addButton3").click(function() {
-          var copy = $(".input3").first().clone();
-          copy.find(".removeButton3").click(function() {
-            $(this).closest(".input3").remove(); // Удаление элемента при нажатии на кнопку
-          });
-          $(".input3").last().after(copy);
-        });
-        });
-    </script>
 
 
     <input type="submit" id="cohranit" value="Подтвердить"/>
@@ -152,7 +115,8 @@
 
 </div>
 
-<!--переместить все скрипты в конц тэга BODY-->
+        <script src="static/js/ill_script.js"></script>
+        <script src="static/js/option_handler.js"></script>
 </body>
 
 </html>
